@@ -1,3 +1,119 @@
 body {
-    background-color: black;
+  background: linear-gradient(to right, #0D0C30 0%, #211231 45%, #371832 60%, #512033 70%, #5d2839 80%, #662c3e 83%, #88343b 90%, #c84537 97%, #DB493A 99%);
 }
+
+#low-res {
+    width: 250px;
+    height: 250px;
+    image-rendering: pixelated;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .menu li {
+    display: inline-block;
+    padding-left: 50px;
+  }
+  
+  .menu li a {
+    color: #FF533B;
+    font-family: montserrat;
+    font-size: x-large;
+    font-weight: 1000;
+    display: block;
+    padding: 30px 25px;
+    text-decoration: none;
+  }
+  
+  .menu li a:hover {
+    color: #EEF1EF;
+  }
+
+  .about {
+    /*margin-top: 100px; 
+    margin-right: 80px;
+    width: 800px;*/
+    font-family: montserrat;
+    color: #EEF1EF;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 100px;
+  }
+
+  .about-child:nth-child(1) img {
+    width: 70%;
+    height: auto;
+    margin-left: 80px;
+  }
+  
+  .about-child:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .about-child:nth-child(2) h1 {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-right: 120px;
+    font-size: 60px;
+  }
+
+  .about-child:nth-child(2) p {
+    text-align: justify;
+    max-width: 900px;
+    margin-right: 120px;
+    font-size: 20px;
+    line-height: 150%;
+  }
+
+  /*.about h1 {
+    text-align: right;
+    font-size: 60px;
+  }
+
+  .about p {
+    clear: both;
+    text-align: justify;
+    font-size: 20px;
+    line-height: 150%;
+  }*/
+
+  a:hover {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    transform: scale(1.05, 1.05);
+  }
+
+  img:hover {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    transform: scale(1.15, 1.15);
+  }
+
+  @media (max-width: 768px) {
+    .menu {
+      text-align: center;
+    }
+    
+    .menu li {
+      display: block;
+    }
+    
+    .menu li a {
+      border-bottom: 1px solid #fff;
+      padding: 10px;
+    }
+  }
+  

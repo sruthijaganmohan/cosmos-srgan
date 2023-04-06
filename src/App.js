@@ -3,12 +3,14 @@ import { useEffect, useState} from "react";
 import * as tf from "@tensorflow/tfjs";
 import './App.css';
 import './model/model.json';
+import astronautImage from './images/astronaut 2.png';
 
 
 
 const App = () => {
   const [inputImage, setInputImage] = useState(null);
   const [model, setModel] = useState();
+  const [imageURL, setImageURL] = useState();
 
   const loadModel = async () => {
     try {
@@ -22,46 +24,19 @@ const App = () => {
     }
   }
 
-  // const preprocessImage = (inputImage) => {
-  //   let img = document.getElementById('saturn');
-  //   img.width = 128;
-  //   img.height = 128;
-    // img.src = URL.createObjectURL(inputImage);
-    // img.addEventListener("load", function() {
-      // document.body.appendChild(img);
-      // let offset = tf.scalar(255.0);
-      // let lri = tf.browser.fromPixels(img).toFloat().sub(offset).div(offset).expandDims();
-  //     let lri = tf.browser.fromPixels(img);
-  //     console.log(lri);
-  //     console.log(lri.shape);
-  //     const data = lri.dataSync();
-  //     console.log(data);
-  //   });
-  // };
-
   const preprocessImage = (inputImage) => {
     const img = new Image();
     img.src = URL.createObjectURL(inputImage);
     img.width = 32;
     img.height = 32;
     img.addEventListener("load", function() {
-      let offset = tf.scalar(255.0);
+      let offset = tf.scalar(255);
       const lri = tf.browser.fromPixels(img).div(offset).expandDims();
       console.log(lri);
       const sri = model.predict(lri);
       console.log(sri);
-      
-      // const tensorWithoutBatch = tf.squeeze(lri);
-      // const scaledTensor = tensorWithoutBatch.mul(255);
-      // const offsetTensor = scaledTensor.add(255);
-      // const intTensor = tf.cast(offsetTensor, 'int32');
-      // const finalTensor = tf.squeeze(intTensor);
-      const tensorWithoutBatch = tf.squeeze(sri)
-      const finalTensor = tensorWithoutBatch.mul(255);
-      // const sriRestored = sri.mul(offset).clipByValue(0, 255).div(offset);
-      // const scaledTensor = sriRestored.mul(255);
-      // const intTensor = tf.cast(scaledTensor, 'int32');
-      // const finalTensor = tf.squeeze(intTensor);
+      const deprocessedTensor = tf.squeeze(sri).mul(offset).clipByValue(0, 255);
+      const finalTensor = tf.cast(deprocessedTensor, 'int32');
       console.log(finalTensor);
       const canvas = document.createElement('canvas');
       canvas.width = 128;
@@ -87,44 +62,10 @@ const App = () => {
       ctx.putImageData(imageData, 0, 0);
       const url = canvas.toDataURL();
       console.log(url);
+      setImageURL(url);
+      
     });
   }
-
-  
-  // const superResolve = (model, lri) => {
-  //   const sri = model.predict(lri);
-  //   console.log(sri);
-  //   construct(sri);
-  // };
-
-  // const construct = (sri) => {
-  //   const canvas = document.createElement('canvas');
-  //   canvas.width = 128;
-  //   canvas.height = 128;
-  //   const ctx = canvas.getContext('2d');
-  //   const [height, width] = sri.shape;
-  //   const buffer = new Uint8ClampedArray(width * height * 4);
-  //   const imageData = new ImageData(width, height);
-  //   const data = sri.dataSync();
-  //   console.log(data);
-  //   var i = 0;
-  //   for(var y = 0; y < height; y++) {
-  //   for(var x = 0; x < width; x++) {
-  //       var pos = (y * width + x) * 4;      
-  //       buffer[pos  ] = data[i]             
-  //       buffer[pos+1] = data[i+1]           
-  //       buffer[pos+2] = data[i+2]           
-  //       buffer[pos+3] = 255;            
-  //       i+=3
-  //     }
-  //   }
-  //   imageData.data.set(buffer);
-  //   ctx.putImageData(imageData, 0, 0);
-    // const url = URL.createObjectURL(imageData);
-    // console.log({ src: url });
-  //   const url = canvas.toDataURL();
-  //   console.log(url); 
-  // };
 
   useEffect(() => {
     tf.ready().then(() => {
@@ -134,14 +75,45 @@ const App = () => {
 
   return (
     <div className="App">
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
+      <nav>
+        <ul class="menu">
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#super-resolve-section">Super-resolve</a></li>
+          <li><a href="#">Hubble</a></li>
+          <li><a href="#">James Webb</a></li>
+        </ul>
+      </nav>
+      
+      <div id="#about-section" className="about">
+        <div className="about-child"><img src={astronautImage} alt="astronaut"/></div>
+        <div className="about-child"><h1>About</h1>
+        <p>Images taken through astronomical telescopes of the cosmos and heavenly bodies are often of low resolution. 
+          Reasons could include environmental factors, temperature, turbulence, human error etc.
+          AI assisted super resolution of cosmological images helps remove noise and atmospheric blur. 
+          The architecture and working of generative adversarial networks allow them to produce highly convincing synthetic estimates of the original image that are perceptually satisfactory. 
+          These estimates are highly valuable to parties interested in astronomical and cosmological studies.</p></div>
+      </div>
 
-      <div>
+      {/*
+      <div id="#super-resolve-section">
         {inputImage && (
           <div>
             <img
+              id="low-res"
               alt="not found"
-              width={"250px"}
+              width={"128px"}
               src={URL.createObjectURL(inputImage)}
+            />
+          </div>
+        )}
+
+        {imageURL && (
+          <div>
+            <img
+              alt="low-resolution"
+              width={"250px"}
+              src={imageURL}
             />
           </div>
         )}
@@ -152,13 +124,14 @@ const App = () => {
 
         <input
           id="saturn"
+          alt="super-resolution"
           type="file"
           name="myImage"
           onChange={(event) => {
             setInputImage(event.target.files[0]);
           }}
         />
-      </div>
+        </div> */}
 
     </div>
   );
