@@ -112,12 +112,13 @@ const App = () => {
 
         {imageURL && (
           <div className="super-resolve-child">
+            <a href={imageURL} download="image.png">
             <img
               id="super-resolution"
               alt="low-resolution"
               width={"300px"}
               src={imageURL}
-            />
+            /></a>
           </div>
         )}
         
