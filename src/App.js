@@ -5,8 +5,6 @@ import './App.css';
 import './model/model.json';
 import astronautImage from './images/astronaut 2.png';
 
-
-
 const App = () => {
   const [inputImage, setInputImage] = useState(null);
   const [model, setModel] = useState();
@@ -75,17 +73,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
+      
       <nav>
-        <ul class="menu">
+        <ul className="menu">
           <li><a href="#about-section">About</a></li>
           <li><a href="#super-resolve-section">Super-resolve</a></li>
-          <li><a href="#">Hubble</a></li>
-          <li><a href="#">James Webb</a></li>
+          <li><a href="#hubble">Hubble</a></li>
+          <li><a href="#james-webb">James Webb</a></li>
         </ul>
       </nav>
       
-      <div id="#about-section" className="about">
+      <div id="about-section" className="about">
+        
         <div className="about-child"><img src={astronautImage} alt="astronaut"/></div>
         <div className="about-child"><h1>About</h1>
         <p>Images taken through astronomical telescopes of the cosmos and heavenly bodies are often of low resolution. 
@@ -95,35 +94,34 @@ const App = () => {
           These estimates are highly valuable to parties interested in astronomical and cosmological studies.</p></div>
       </div>
 
-      {/*
-      <div id="#super-resolve-section">
+      
+      <div id="super-resolve-section">
+        <div className="super-resolve">
         {inputImage && (
-          <div>
+          <div className="super-resolve-child">
             <img
-              id="low-res"
+              id="low-resolution"
               alt="not found"
-              width={"128px"}
+              width={"300px"}
               src={URL.createObjectURL(inputImage)}
             />
           </div>
         )}
 
         {imageURL && (
-          <div>
+          <div className="super-resolve-child">
             <img
+              id="super-resolution"
               alt="low-resolution"
-              width={"250px"}
+              width={"300px"}
               src={imageURL}
             />
           </div>
         )}
-
-      <div>
-        <button onClick={() => preprocessImage(inputImage)}>super resolve</button>
-      </div>
-
+        
         <input
-          id="saturn"
+          id="upload-img"
+          className="super-resolve-child"
           alt="super-resolution"
           type="file"
           name="myImage"
@@ -131,9 +129,19 @@ const App = () => {
             setInputImage(event.target.files[0]);
           }}
         />
-        </div> */}
 
+        <button id="super-resolve-button" className="super-resolve-child" onClick={() => preprocessImage(inputImage)}>super-resolve</button>
+        
+      </div> 
+        
+        
+      </div>
+
+        <div id="hubble">
+        </div>
+        <div id="james-webb"></div>
     </div>
+    
   );
 };
 
