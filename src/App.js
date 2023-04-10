@@ -150,6 +150,15 @@ const App = () => {
       </div>
       </div>
 
+      <div id="james-webb-section">
+        <div className="james-webb">
+        <div className="james-webb-child"><img src={jamesWebbImage} alt="james webb"/></div>
+      <div className="james-webb-child"><h1>James Webb Space Telescope</h1>
+      <p>The James Webb Space Telescope (JWST) launced on 25th December, 2021 is a space telescope currently conducting infrared astronomy.
+         As the largest optical telescope in space, it is equipped with high-resolution and high-sensitivity instruments, allowing it to view objects too old, distant, or faint for the Hubble Space Telescope. 
+         This enables investigations across many fields of astronomy and cosmology, such as observation of the first stars, the formation of the first galaxies, and detailed atmospheric characterization of potentially habitable exoplanets.</p></div>
+      </div>
+      </div>
     </div>
     
   );

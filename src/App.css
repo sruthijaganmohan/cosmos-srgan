@@ -206,3 +206,44 @@ nav {
     margin-top: 140px;
   }
 
+/* James webb */
+#james-webb-section {
+  height: 100vh;
+}
+
+.james-webb {
+  color: #EEF1EF;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  height: 100vh;
+}
+
+.james-webb-child:nth-child(1) img {
+  width: 70%;
+  height: auto;
+  margin-left: 120px;
+  margin-top: 90px;
+}
+
+.james-webb-child:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.james-webb-child:nth-child(2) h1 {
+  max-width: 800px;
+  text-align: right;
+  margin-right: 120px;
+  font-size: 60px;
+}
+
+.james-webb-child:nth-child(2) p {
+  text-align: justify;
+  max-width: 900px;
+  margin-right: 120px;
+  font-size: 20px;
+  line-height: 150%;
+  margin-top: 5px;
+}
