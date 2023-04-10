@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-  background: linear-gradient(to right, #080818 0%, #0D0C30 30%, #211231 45%, #371832 60%, #512033 70%, #5d2839 80%, #662c3e 83%, #88343b 90%, #c84537 97%, #DB493A 99%);
+  background: linear-gradient(to right, #080818 0%, #0c0c23 15%, #0D0C30 30%, #211231 45%, #371832 60%, #512033 70%, #5d2839 80%, #662c3e 83%, #88343b 90%, #c84537 97%, #DB493A 99%);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -98,7 +98,7 @@ nav {
     transform: translate(-50%, -50%);
     height: 500px;
     width: 800px;
-    background-color: #e5cfe7;
+    background-color: #ea5444;
     border-radius: 5%;
     display: flex;
     justify-content: space-around;
@@ -162,5 +162,47 @@ nav {
     margin-left: -180px;
     margin-top: 40px;
     border-radius: 10px;
+  }
+
+/* hubble space telescope */
+  #hubble-section {
+    height: 100vh;
+  }
+
+  .hubble {
+    color: #EEF1EF;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    height: 100vh;
+  }
+
+  .hubble-child:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hubble-child:nth-child(1) h1 {
+    max-width: 800px;
+    text-align: left;
+    margin-left: 120px;
+    font-size: 60px;
+  }
+
+  .hubble-child:nth-child(1) p {
+    text-align: justify;
+    max-width: 900px;
+    margin-left: 120px;
+    font-size: 20px;
+    line-height: 150%;
+    margin-top: 5px;
+  }
+
+  .hubble-child:nth-child(2) img {
+    width: 70%;
+    height: auto;
+    margin-left: 140px;
+    margin-top: 140px;
   }
 

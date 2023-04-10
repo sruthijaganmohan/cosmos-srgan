@@ -4,6 +4,8 @@ import * as tf from "@tensorflow/tfjs";
 import './App.css';
 import './model/model.json';
 import astronautImage from './images/astronaut 2.png';
+import hubbleImage from './images/hubble.png'
+import jamesWebbImage from './images/james webb.png'
 
 const App = () => {
   const [inputImage, setInputImage] = useState(null);
@@ -78,8 +80,8 @@ const App = () => {
         <ul className="menu">
           <li><a href="#about-section">About</a></li>
           <li><a href="#super-resolve-section">Super-resolve</a></li>
-          <li><a href="#hubble">Hubble</a></li>
-          <li><a href="#james-webb">James Webb</a></li>
+          <li><a href="#hubble-section">Hubble</a></li>
+          <li><a href="#james-webb-section">James Webb</a></li>
         </ul>
       </nav>
       
@@ -137,9 +139,17 @@ const App = () => {
         
       </div>
 
-        <div id="hubble">
-        </div>
-        <div id="james-webb"></div>
+      <div id="hubble-section">
+        <div className="hubble">
+      <div className="hubble-child"><h1>Hubble Space Telescope</h1>
+      <p>The Hubble Space Telescope (often referred to as HST or Hubble) is a space telescope that was launched into low Earth orbit in 1990 and remains in operation.
+      It is one of the largest and most versatile, renowned both as a vital research tool and as a public relations boon for astronomy.
+      The Hubble telescope is named after astronomer Edwin Hubble and is one of NASA's Great Observatories.
+      Hubble features a 2.4 m (7 ft 10 in) mirror, and its five main instruments observe in the ultraviolet, visible, and near-infrared regions of the electromagnetic spectrum.</p></div>
+      <div className="hubble-child"><img src={hubbleImage} alt="hubble"/></div>
+      </div>
+      </div>
+
     </div>
     
   );
