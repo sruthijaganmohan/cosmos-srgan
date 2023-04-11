@@ -80,11 +80,6 @@ nav {
   margin-top: 5px;
 }
 
-img:hover {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-  transform: scale(1.15, 1.15);
-}
-
 .floating { 
   animation-name: floating;
   animation-duration: 3s;
@@ -274,6 +269,10 @@ input[type=file]:hover {
   margin-top: 5px;
 }
 
+/* gallery */
+#gallery-section {
+  height: 100vh;
+}
 
 /*responsive*/
 @media (max-width: 768px) {
@@ -429,5 +428,10 @@ input[type=file]:hover {
     font-size: 18px;
     line-height: 140%;
     margin-top: 20px;
+  }
+
+  /* gallery */
+  #gallery-section {
+    display: none;
   }
 }

@@ -1,0 +1,46 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+
+.carousel button {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.carousel:hover button {
+  opacity: 50%;
+}
+
+.carousel button {
+  background-color: #823a51;
+  border: 1px solid #823a51;
+  border-radius: 10px;
+  color: #EEF1EF;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  font-size: 35px;
+  padding: 20px 30px 20px 30px;
+}
+
+.carousel button:hover {
+  opacity: 100%;
+}
+
+.prev {
+  margin-right: 20px;
+}
+
+.next {
+  margin-left: 20px;
+}
+
+.carousel img {
+  width: 800px;
+  height: 600px;
+  border-radius: 30px;
+  border: 2px solid #EEF1EF;
+}
+  

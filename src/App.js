@@ -6,11 +6,25 @@ import './model/model.json';
 import astronautImage from './images/astronaut 2.png';
 import hubbleImage from './images/hubble.png'
 import jamesWebbImage from './images/james webb.png'
+import ImageCarousel from './ImageCarousel.js';
+
 
 const App = () => {
   const [inputImage, setInputImage] = useState(null);
   const [model, setModel] = useState();
   const [imageURL, setImageURL] = useState();
+  const images = [
+    "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/main_image_star-forming_region_carina_nircam_final-1280.jpg?itok=9hyNVMwe",
+    "https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/hubble_arp-madore608-333_potw2240a.jpg",
+    "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/main_image_deep_field_smacs0723-1280.jpg?itok=6-LM40Qf",
+    "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/hubble_doublequasar_stsci-01gwq9wa2k9n3tvybwsze8pdn7.jpg?itok=bj3HG5or",
+    "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/hubble_30dor_potw2305a_main.jpg",
+    "https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/hubble_hipassj1131_31_stsci-01gjdzxn9kmpg6v6gassmj2j6v.png",
+    "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/main_image_galaxies_stephans_quintet_sq_nircam_miri_final-1280.jpg?itok=HyMw6H_h",
+    "https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/hubble_arp_madore_417_391_potw2247a.jpg",
+    "https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/hubble_ngc3318_potw2203a_0.png",
+    "https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/potw2050a.jpg"
+  ];
 
   const loadModel = async () => {
     try {
@@ -82,6 +96,7 @@ const App = () => {
           <li><a href="#super-resolve-section">Super-resolve</a></li>
           <li><a href="#hubble-section">Hubble</a></li>
           <li><a href="#james-webb-section">James Webb</a></li>
+          <li><a href="#gallery-section">Gallery</a></li>
         </ul>
       </nav>
 
@@ -155,6 +170,10 @@ const App = () => {
               As the largest optical telescope in space, it is equipped with high-resolution and high-sensitivity instruments, allowing it to view objects too old, distant, or faint for the Hubble Space Telescope.
               This enables investigations across many fields of astronomy and cosmology, such as observation of the first stars, the formation of the first galaxies, and detailed atmospheric characterization of potentially habitable exoplanets.</p></div>
         </div>
+      </div>
+
+      <div id="gallery-section">
+        <ImageCarousel images={images} />
       </div>
     </div>
 
