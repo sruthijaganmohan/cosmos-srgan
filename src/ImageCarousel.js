@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ImageCarousel.css';
 
 const ImageCarousel = ({ images }) => {
@@ -14,6 +14,13 @@ const ImageCarousel = ({ images }) => {
     );
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNextClick();
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
   return (
     <div className="carousel">
       <button className='prev' onClick={handlePrevClick}>&lt;</button>
@@ -24,4 +31,5 @@ const ImageCarousel = ({ images }) => {
 };
 
 export default ImageCarousel;
+
 
